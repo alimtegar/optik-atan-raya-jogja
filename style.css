@@ -1,0 +1,72 @@
+/* ------ Reboot ------ */
+html, body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* ------ Custom and Redefined Utilities ------ */
+/* --- Width --- */
+.w-33 { width: 33%; }
+
+/* --- Position --- */
+.top-0 { top: 0; }
+.right-0 { right: 0; }
+.left-0 { left: 0; }
+.top-50 { top: 50%; }
+.left-50 { left: 50%; }
+
+/* --- Fit --- */
+.fit-width { width: 100% !important; height: auto !important; }
+.fit-height { height: 100% !important; width: auto !important; }
+
+/* --- Typography --- */
+.rufina { font-family: 'Rufina', serif; }
+
+/* --- Form --- */
+.btn {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border: 0;
+    border-radius: 0;
+}
+
+.btn-primary {
+    background-color: #C68E76;
+}
+
+/* ------ Navbar ------ */
+#navbar .navbar-nav .nav-item .nav-link {
+    position: relative;
+    font-size: 14px;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+}
+
+#navbar .navbar-nav .nav-item .nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: calc(-1rem + 4px);
+    left: 0;
+    background-color: transparent;
+    height: 2px;
+    width: 100%;
+}
+
+#navbar .navbar-nav .nav-item .nav-link.active::before {
+    background-color: #C68E76;
+}
+
+/* ------ Slider ------ */
+#slider {
+    height: 600px;
+}
+
+#slider .slick-slider,
+#slider .slick-slider .slick-list,
+#slider .slick-slider .slick-list .slick-track,
+#slider .slick-slider .slick-list .slick-track .slick-slide,
+#slider .slick-slider .slick-list .slick-track .slick-slide > div {
+    height: 100%;
+}
