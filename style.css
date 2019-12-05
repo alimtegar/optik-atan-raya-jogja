@@ -5,7 +5,7 @@ html, body {
 
 /* ------ Custom and Redefined Utilities ------ */
 /* --- Width --- */
-.w-33 { width: 33%; }
+.w-40 { width: 40%; }
 
 /* --- Position --- */
 .top-0 { top: 0; }
@@ -20,6 +20,8 @@ html, body {
 
 /* --- Typography --- */
 .rufina { font-family: 'Rufina', serif; }
+
+.small, small { font-size: 14px; }
 
 /* --- Form --- */
 .btn {
