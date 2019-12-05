@@ -1,6 +1,6 @@
 const Navbar = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light shadow-sm" id="navbar">
+        <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm" id="navbar">
             <div className="container">
                 <a className="navbar-brand rufina h5 m-0 p-0" href="#">Optik Atan Raya Jogja</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-supported-content" aria-controls="navbar-supported-content" aria-expanded="false" aria-label="Toggle navigation">

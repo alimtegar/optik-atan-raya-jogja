@@ -4,15 +4,37 @@ html, body {
 }
 
 /* ------ Custom and Redefined Utilities ------ */
+/* --- Divider --- */
+.divider {
+    width: 50px;
+    margin: 0;
+    border-top-width: 2px;
+}
+
 /* --- Width --- */
 .w-40 { width: 40%; }
 
 /* --- Position --- */
 .top-0 { top: 0; }
+.bottom-0 { bottom: 0; }
 .right-0 { right: 0; }
 .left-0 { left: 0; }
 .top-50 { top: 50%; }
 .left-50 { left: 50%; }
+
+/* --- Space --- */
+.py-6 { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+
+.m-min-2 { margin: -0.5rem; }
+.my-min-2 { margin-top: -0.5rem; margin-bottom: -0.5rem; }
+.mx-min-2 { margin-left: -0.5rem; margin-right: -0.5rem; }
+.mt-min-2 { margin-top: -0.5rem; }
+.mb-min-2 { margin-bottom: -0.5rem; }
+.ml-min-2 { margin-left: -0.5rem; }
+.mr-min-2 { margin-right: -0.5rem; }
+
+/* --- Border --- */
+.border-primary { border-color: #C68E76 !important; }
 
 /* --- Fit --- */
 .fit-width { width: 100% !important; height: auto !important; }
@@ -62,7 +84,7 @@ html, body {
 
 /* ------ Slider ------ */
 #slider {
-    height: 600px;
+    height: 640px;
 }
 
 #slider .slick-slider,
@@ -71,4 +93,13 @@ html, body {
 #slider .slick-slider .slick-list .slick-track .slick-slide,
 #slider .slick-slider .slick-list .slick-track .slick-slide > div {
     height: 100%;
+}
+
+/* ------ Products ------- */
+.products .products-body .products-item {
+    height: 360px;
+}
+
+.products .products-body .products-item .item-text {
+    background: linear-gradient(transparent, #212529);
 }
