@@ -12,7 +12,7 @@ const MyHead = () => {
             <meta content="optik,atan,raya,jogja,optik atan,optik atan raya,optik atan raya jogja,optik jogja" name="keywords" />
             <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 
-            <link href="https://fonts.googleapis.com/css?family=Open+Sans:400|Rufina:700&display=swap" rel="stylesheet" />
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Merriweather:700&display=swap" rel="stylesheet" />
         </Head>
     );
 };
