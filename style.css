@@ -161,11 +161,6 @@ figure {
 	position: relative;
 	float: left;
 	overflow: hidden;
-	/* margin: 10px 1%; */
-	/* min-width: 320px;
-	max-width: 480px;
-	max-height: 360px;
-	width: 48%; */
 	background: #853c33;
 	text-align: center;
 	cursor: pointer;
@@ -174,8 +169,6 @@ figure {
 figure img {
 	position: relative;
 	display: block;
-	min-height: 100%;
-	max-width: 100%;
 	opacity: 1;
 }
 

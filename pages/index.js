@@ -16,10 +16,10 @@ const Index = () => {
                 </div>
 
                 <Slider />
-                <Products title="Men's Collections" />
-                <Products title="Women's Collections" />
-                <Products title="Kid's Collections" />
-                <Products title="Accessories" />
+                <Products id="mens-collections" title="Men's Collections" />
+                {/* <Products id="womens-collections" title="Women's Collections" />
+                <Products id="kids-collections" title="Kid's Collections" />
+                <Products id="accessories" title="Accessories" /> */}
                 <Footer />
             </main>
         </div>
