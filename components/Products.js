@@ -16,7 +16,7 @@ const Products = ({ title }) => {
 
             <div className="products-header mb-5">
                 <div className="container">
-                    <h1 className="rufina h2 mb-3">Men's Collections</h1>
+                    <h1 className="rufina h2 mb-3">{title}</h1>
                     <hr className="divider border-primary" />
                 </div>
             </div>
@@ -52,5 +52,9 @@ const Products = ({ title }) => {
         </section>
     );
 };
+
+Products.propTypes = {
+    title: PropTypes.string.isRequired,
+}
 
 export default Products;

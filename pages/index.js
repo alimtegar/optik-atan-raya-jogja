@@ -16,9 +16,10 @@ const Index = () => {
                 </div>
 
                 <Slider />
-                <Products />
-                <Products />
-                <Products />
+                <Products title="Men's Collections" />
+                <Products title="Women's Collections" />
+                <Products title="Kid's Collections" />
+                <Products title="Accessories" />
                 <Footer />
             </main>
         </div>
