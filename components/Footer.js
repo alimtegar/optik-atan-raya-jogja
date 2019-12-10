@@ -104,22 +104,22 @@ const Footer = () => {
                                 <ul className="nav m-min-1">
                                     <li className="nav-item">
                                         <a href="#" className="nav-link">
-                                            <i className="fab fa-facebook-f"></i>
+                                            <i className="fab fa-facebook-f fa-lg" />
                                         </a>
                                     </li>
                                     <li className="nav-item">
                                         <a href="#" className="nav-link">
-                                            <i className="fab fa-twitter"></i>
+                                            <i className="fab fa-twitter fa-lg" />
                                         </a>
                                     </li>
                                     <li className="nav-item">
                                         <a href="#" className="nav-link">
-                                            <i className="fab fa-instagram"></i>
+                                            <i className="fab fa-instagram fa-lg" />
                                         </a>
                                     </li>
                                     <li className="nav-item">
                                         <a href="#" className="nav-link">
-                                            <i className="fab fa-whatsapp"></i>
+                                            <i className="fab fa-whatsapp fa-lg" />
                                         </a>
                                     </li>
                                 </ul>

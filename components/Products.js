@@ -4,11 +4,11 @@ import Slider from "react-slick";
 const Products = ({ title }) => {
     const settings = {
         centerMode: true,
-        dots: false,
+        dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4
+        slidesToShow: 5,
+        slidesToScroll: 5
     };
 
     return (
@@ -16,25 +16,37 @@ const Products = ({ title }) => {
 
             <div className="products-header mb-5">
                 <div className="container">
-                    <h1 className="rufina h2 mb-2">Men's Collections</h1>
+                    <h1 className="rufina h2 mb-3">Men's Collections</h1>
                     <hr className="divider border-primary" />
                 </div>
             </div>
 
             <div className="products-body my-min-2">
                 <Slider {...settings}>
-                    {[...Array(5)].map(() => (
+                    {[...Array(7)].map(() => (
                         <div className="p-2">
-                            <div className="products-item position-relative d-flex justify-content-center align-items-center text-white overflow-hidden">
-                                <div className="item-text position-absolute left-0 bottom-0 w-100 p-4 pt-5">
-                                    <h2 className="h6 font-weight-bold mb-0">Frame BVL4032</h2>
-                                    <p className="small mb-0">IDR 1.000.000 · 60#14-145</p>
+                            <div className="products-item shadow-sm overflow-hidden">
+                                <div className="item-image">
+                                    <figure class="effect-chico w-100 h-100">
+                                        <img src="/static/images/slider-1.jpeg" alt="" className="fit-height" />
+                                        <figcaption>
+                                            <p className="font-weight-bold">
+                                                <button className="btn btn-outline-light">
+                                                    VIEW DETAIL
+                                                </button>
+                                            </p>
+                                            <a href="#">View more</a>
+                                        </figcaption>
+                                    </figure>
                                 </div>
 
-                                <img src="/static/images/slider-1.jpeg" alt="" className="fit-height" />
+                                <div className="item-text w-100 p-3">
+                                    <h2 className="h6 font-weight-bold mb-0">Frame BVL4032</h2>
+                                    <p className="small text-muted mb-0">IDR 1.000.000· 60#14-145</p>
+                                </div>
                             </div>
                         </div>
-                    ))} 
+                    ))}
                 </Slider>
             </div>
         </section>
