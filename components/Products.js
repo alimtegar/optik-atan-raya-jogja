@@ -30,35 +30,31 @@ const ProductsItem = ({ image, group }) => {
 
 const Products = ({ id, title }) => {
     const settings = {
-        centerMode: true,
-        dots: true,
+        dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: 4,
     };
 
-    const image = '/static/images/slider-1.jpeg';
-
     return (
-        <section id={id} className="products py-5">
-
-            <div className="products-header mb-5">
-                <div className="container">
+        <section id={id} className="products py-5 overflow-hidden">
+            <div className="container">
+                <div className="products-header mb-5">
                     <h1 className="rufina h2 mb-3">{title}</h1>
                     <hr className="divider border-primary" />
                 </div>
-            </div>
 
-            <div className="products-body my-min-2">
-                <LightgalleryProvider>
-                    <Slider {...settings}>
-                        {[...Array(7)].map((_, key) => (
-                            <div className="p-2" key={key}>
-                                <ProductsItem image={image} group={id} />
-                            </div>
-                        ))}
-                    </Slider>
-                </LightgalleryProvider>
+                <div className="products-body m-min-2">
+                    <LightgalleryProvider>
+                        <Slider {...settings}>
+                            {[...Array(7)].map((_, key) => (
+                                <div className="p-2" key={key}>
+                                    <ProductsItem image={`https://picsum.photos/id/17${key}/300/300`} group={id} />
+                                </div>
+                            ))}
+                        </Slider>
+                    </LightgalleryProvider>
+                </div>
             </div>
         </section>
     );

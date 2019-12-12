@@ -3,6 +3,7 @@ import Head from '../components/Head';
 import Navbar from '../components/Navbar';
 import Slider from '../components/Slider';
 import Products from '../components/Products';
+import Gallery from '../components/Gallery';
 import Footer from '../components/Footer';
 
 const Index = () => {
@@ -17,9 +18,10 @@ const Index = () => {
 
                 <Slider />
                 <Products id="mens-collections" title="Men's Collections" />
-                {/* <Products id="womens-collections" title="Women's Collections" />
-                <Products id="kids-collections" title="Kid's Collections" />
-                <Products id="accessories" title="Accessories" /> */}
+                <Products id="womens-collections" title="Women's Collections" />
+                {/* <Products id="kids-collections" title="Kid's Collections" /> */}
+                {/* <Products id="accessories" title="Accessories" /> */}
+                <Gallery />
                 <Footer />
             </main>
         </div>

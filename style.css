@@ -42,6 +42,14 @@ html, body {
 /* --- Space --- */
 .py-6 { padding-top: 4.5rem; padding-bottom: 4.5rem; }
 
+.m-min-1 { margin: -0.25rem; }
+.my-min-1 { margin-top: -0.25rem; margin-bottom: -0.25rem; }
+.mx-min-1 { margin-left: -0.25rem; margin-right: -0.25rem; }
+.mt-min-1 { margin-top: -0.25rem; }
+.mb-min-1 { margin-bottom: -0.25rem; }
+.ml-min-1 { margin-left: -0.25rem; }
+.mr-min-1 { margin-right: -0.25rem; }
+
 .m-min-2 { margin: -0.5rem; }
 .my-min-2 { margin-top: -0.5rem; margin-bottom: -0.5rem; }
 .mx-min-2 { margin-left: -0.5rem; margin-right: -0.5rem; }
@@ -53,6 +61,9 @@ html, body {
 /* --- Border --- */
 .border-primary { border-color: #853c33 !important; }
 .border-white-transparent { border-color: rgba(255, 255, 255, 0.16) !important; }
+
+/* --- Shadow --- */
+.shadow-sm { box-shadow: 0 1px 3px rgba(8, 5, 5, 0.16) !important; }
 
 /* --- Fit --- */
 .fit-width { width: 100% !important; height: auto !important; }
@@ -116,7 +127,16 @@ html, body {
 
 /* ------ Products ------- */
 .products .products-body .products-item .item-image {
-    height: 240px;
+    height: 270px;
+}
+
+.products .products-body .slick-slider .slick-list {
+	overflow: unset;
+}
+
+/* ------ Gallery ------- */
+#gallery .gallery-body .gallery-item .item-image {
+    height: 270px;
 }
 
 /* ------- Footer ------ */
@@ -162,6 +182,7 @@ figure {
 	float: left;
 	overflow: hidden;
 	background: #853c33;
+	margin: 0;
 	text-align: center;
 	cursor: pointer;
 }
