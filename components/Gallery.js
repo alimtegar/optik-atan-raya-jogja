@@ -26,7 +26,7 @@ const Gallery = () => {
         <section id="gallery" className="py-5">
             <div className="container">
                 <div className="gallery-header mb-5">
-                    <h1 className="rufina h2 mb-3">Gallery</h1>
+                    <h1 className="rufina h2 mb-3">Image Gallery</h1>
                     <hr className="divider border-primary" />
                 </div>
 
@@ -34,7 +34,7 @@ const Gallery = () => {
                     <LightgalleryProvider>
                         <div className="row m-min-2">
                             {[...Array(7)].map((_, key) => (
-                                <div className="col-lg-3 p-2" key={key}>
+                                <div className="col-lg-3 p-1" key={key}>
                                     <GalleryItem image={`https://picsum.photos/id/16${key}/300/300`} group="gallery"/>
                                 </div>
                             ))}

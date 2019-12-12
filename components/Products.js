@@ -44,11 +44,11 @@ const Products = ({ id, title }) => {
                     <hr className="divider border-primary" />
                 </div>
 
-                <div className="products-body m-min-2">
+                <div className="products-body m-min-1">
                     <LightgalleryProvider>
                         <Slider {...settings}>
                             {[...Array(7)].map((_, key) => (
-                                <div className="p-2" key={key}>
+                                <div className="p-1" key={key}>
                                     <ProductsItem image={`https://picsum.photos/id/17${key}/300/300`} group={id} />
                                 </div>
                             ))}
