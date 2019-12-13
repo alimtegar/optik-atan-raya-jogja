@@ -2,6 +2,9 @@ import PropTypes from 'prop-types'
 import Slider from "react-slick";
 import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery";
 
+/* Components */
+import { SliderNextArrow, SliderPrevArrow } from './SliderArrows';
+
 const ProductsItem = ({ image, group }) => {
     return (
         <div className="products-item shadow-sm overflow-hidden">
@@ -34,26 +37,32 @@ const Products = ({ id, title }) => {
         infinite: false,
         speed: 500,
         slidesToShow: 4,
+        nextArrow: <SliderNextArrow />,
+        prevArrow: <SliderPrevArrow />
     };
 
     return (
         <section id={id} className="products py-5 overflow-hidden">
-            <div className="container">
-                <div className="products-header mb-5">
+            <div className="products-header mb-5">
+                <div className="container">
                     <h1 className="rufina h2 mb-3">{title}</h1>
                     <hr className="divider border-primary" />
                 </div>
+            </div>
 
-                <div className="products-body m-min-1">
-                    <LightgalleryProvider>
-                        <Slider {...settings}>
-                            {[...Array(7)].map((_, key) => (
-                                <div className="p-1" key={key}>
-                                    <ProductsItem image={`https://picsum.photos/id/17${key}/300/300`} group={id} />
-                                </div>
-                            ))}
-                        </Slider>
-                    </LightgalleryProvider>
+            <div className="position-relative">
+                <div className="container">
+                    <div className="products-body m-min-1">
+                        <LightgalleryProvider>
+                            <Slider {...settings}>
+                                {[...Array(7)].map((_, key) => (
+                                    <div className="p-1" key={key}>
+                                        <ProductsItem image={`https://picsum.photos/id/17${key}/300/300`} group={id} />
+                                    </div>
+                                ))}
+                            </Slider>
+                        </LightgalleryProvider>
+                    </div>
                 </div>
             </div>
         </section>
