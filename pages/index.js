@@ -19,8 +19,8 @@ const Index = () => {
                 <Slider />
                 <Products id="mens-collections" title="Men's Collections" />
                 <Products id="womens-collections" title="Women's Collections" />
-                {/* <Products id="kids-collections" title="Kid's Collections" /> */}
-                {/* <Products id="accessories" title="Accessories" /> */}
+                <Products id="kids-collections" title="Kid's Collections" />
+                <Products id="accessories" title="Accessories" />
                 <Gallery />
                 <Footer />
             </main>

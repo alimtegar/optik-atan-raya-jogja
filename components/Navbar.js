@@ -1,3 +1,5 @@
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm" id="navbar">
@@ -10,16 +12,82 @@ const Navbar = () => {
                 <div id="navbar-supported-content" className="collapse navbar-collapse">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <a className="nav-link active" href="#">Men's Collection</a>
+                            <Link 
+                                activeClass="active"
+                                className="nav-link" 
+                                to="slider"
+                                spy={true} 
+                                smooth={true} 
+                                duration={500}
+                                offset={-61} 
+                            >
+                                Home
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Women's Collection</a>
+                            <Link 
+                                activeClass="active"
+                                className="nav-link" 
+                                to="mens-collections"
+                                spy={true} 
+                                smooth={true} 
+                                duration={500} 
+                                offset={-61} 
+                            >
+                                Men's
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Accessories</a>
+                            <Link 
+                                activeClass="active"
+                                className="nav-link" 
+                                to="womens-collections"
+                                spy={true} 
+                                smooth={true} 
+                                duration={500} 
+                                offset={-61} 
+                            >
+                                Women's
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Gallery</a>
+                            <Link 
+                                activeClass="active"
+                                className="nav-link" 
+                                to="kids-collections"
+                                spy={true} 
+                                smooth={true} 
+                                duration={500} 
+                                offset={-61} 
+                            >
+                                Kid's
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link 
+                                activeClass="active"
+                                className="nav-link" 
+                                to="accessories"
+                                spy={true} 
+                                smooth={true} 
+                                duration={500} 
+                                offset={-61} 
+                            >
+                                Accessories
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link 
+                                activeClass="active"
+                                className="nav-link" 
+                                to="gallery"
+                                spy={true} 
+                                smooth={true} 
+                                duration={500} 
+                                offset={-61} 
+                            >
+                                Gallery
+                            </Link>
                         </li>
                     </ul>
                 </div>
