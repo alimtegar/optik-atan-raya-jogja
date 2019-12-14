@@ -11,7 +11,7 @@ const ProductsItem = ({ image, group }) => {
             <LightgalleryItem group={group} src={image}>
                 <div className="item-image">
                     <figure className="effect-chico w-100 h-100">
-                        <img src={image} alt="Products Item" className="fit-height" />
+                        <img src={image} alt="Products Item" className="fit-width" />
 
                         <figcaption>
                             <p className="font-weight-bold">
@@ -37,8 +37,36 @@ const Products = ({ id, title }) => {
         infinite: false,
         speed: 500,
         slidesToShow: 4,
+
         nextArrow: <SliderNextArrow />,
-        prevArrow: <SliderPrevArrow />
+        prevArrow: <SliderPrevArrow />,
+
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ],
     };
 
     return (

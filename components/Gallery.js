@@ -6,7 +6,7 @@ const GalleryItem = ({ image, group }) => {
             <LightgalleryItem group={group} src={image}>
                 <div className="item-image">
                     <figure className="effect-chico w-100 h-100">
-                        <img src={image} alt="Products Item" className="fit-height" />
+                        <img src={image} alt="Products Item" className="fit-width" />
 
                         <figcaption>
                             <p className="font-weight-bold">
@@ -34,7 +34,7 @@ const Gallery = () => {
                     <LightgalleryProvider>
                         <div className="row m-min-2">
                             {[...Array(7)].map((_, key) => (
-                                <div className="col-lg-3 p-1" key={key}>
+                                <div className="col-6 col-lg-3 p-1" key={key}>
                                     <GalleryItem image={`https://picsum.photos/id/16${key}/300/300`} group="gallery"/>
                                 </div>
                             ))}

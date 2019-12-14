@@ -2,7 +2,7 @@ export const SliderNextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
         <div
-            className={className}
+            className={className + ' d-none d-lg-block'}
             style={style}
             onClick={onClick}
         >
@@ -18,7 +18,7 @@ export const SliderPrevArrow = (props) => {
     const { className, style, onClick } = props;
     return (
         <div
-            className={className}
+            className={className + ' d-none d-lg-block'}
             style={style}
             onClick={onClick}
         >
