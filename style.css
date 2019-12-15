@@ -25,8 +25,8 @@ a { cursor: pointer; }
     justify-content: center;
     align-items: center;
     padding: 0 !important;
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
 }
 
 /* --- Divider --- */
@@ -78,7 +78,8 @@ a { cursor: pointer; }
 .border-white-transparent { border-color: rgba(255, 255, 255, 0.16) !important; }
 
 /* --- Shadow --- */
-.shadow-sm { box-shadow: 0 1px 3px rgba(8, 5, 5, 0.16) !important; }
+.shadow-sm { box-shadow: 0 1px 3px rgba(17, 17, 17, 0.16) !important; }
+.text-shadow-sm { text-shadow: 0 1px 3px rgba(17, 17, 17, 0.16); }
 
 /* --- Fit --- */
 .fit-width { width: 100% !important; height: auto !important; }
@@ -106,6 +107,8 @@ a { cursor: pointer; }
 	color: #fff !important;
 	background-color: rgba(17, 17, 17, 0.83);
 }
+
+.btn-primary:hover { background-color: #73352d;}
 .btn-dark-transparent:hover {
 	background: #111;
 }
@@ -116,8 +119,7 @@ a { cursor: pointer; }
     font-size: 14px;
     padding: 0.5rem 1rem;
     font-weight: bold;
-    text-transform: uppercase;
-    
+    text-transform: uppercase;   
 }
 
 #navbar .navbar-nav .nav-item .nav-link::before {
@@ -213,7 +215,7 @@ a { cursor: pointer; }
 /* ------- Footer ------ */
 /* --- Business Hours --- */
 #footer .footer-business-hours ul li { padding: 0.25rem 0; }
-#footer .footer-business-hours ul li .d-table-cell:first-child { width: 56px; }
+#footer .footer-business-hours ul li span:first-child { width: 56px; }
 #footer .footer-business-hours ul li:not(:last-child) { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 
 /* --- Navigation --- */
@@ -221,6 +223,10 @@ a { cursor: pointer; }
 #footer .footer-nav ul li a {
     color: inherit;
     padding: 0.25rem 0;
+}
+
+#footer .footer-nav ul li a:hover {
+	text-decoration: underline;
 }
 
 /* --- Social Media --- */ 
@@ -237,9 +243,13 @@ a { cursor: pointer; }
 }
 
 #footer .footer-social-media ul li a:hover {
-    background: #fff;
-    color: #853c33;
+    color: #fff;
 }
+
+#footer .footer-social-media ul li a.facebook:hover { background: #1877f2; border-color: #1877f2; }
+#footer .footer-social-media ul li a.twitter:hover { background: #1da1f2; border-color: #1da1f2; }
+#footer .footer-social-media ul li a.instagram:hover { background: #c32aa3; border-color: #c32aa3; }
+#footer .footer-social-media ul li a.whatsapp:hover { background: #25d366; border-color: #25d366; }
 
 /* --- Copyright --- */
 #footer .footer-copyright a {
@@ -371,17 +381,29 @@ figure.effect-chico:hover p {
 
 /* ------ Responsive ------ */
 @media only screen and (max-width: 1080px) {
-	h2, .h2 {
-		font-size: 24px;
+	h2, .h2 { font-size: 24px; }
+	h5, .h5 { font-size: 18px; }
+
+	/* ------ Navbar ------ */
+	#navbar .navbar-nav .nav-item .nav-link {
+		padding: 0.5rem;
+	}
+
+	#navbar .navbar-nav .nav-item .nav-link::before {
+		bottom: 0;
+		left: -0.5rem;
+		background-color: transparent;
+		width: 2px;
+		height: 100%;
 	}
 
 	/* ------ Slider ------ */
 	#slider {
-		height: 250px;
+		height: 210px;
 	}
 
 	/* ------ Gallery ------- */
 	#gallery .gallery-body .gallery-item .item-image {
-		height: 170px;
+		height: 160px;
 	}
 }

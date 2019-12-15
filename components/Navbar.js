@@ -1,18 +1,33 @@
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { useState } from 'react';
+import { Link } from 'react-scroll';
 
 const Navbar = () => {
+    const [isShow, setIsShow] = useState(false);
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-white p-2 shadow-sm" id="navbar">
             <div className="container">
-                <button className="navbar-toggler square mr-auto" type="button" data-toggle="collapse" data-target="#navbar-supported-content" aria-controls="navbar-supported-content" aria-expanded="false" aria-label="Toggle navigation">
+                <button 
+                    className="navbar-toggler square mr-auto rounded-0" 
+                    type="button" 
+                    data-toggle="collapse" 
+                    data-target="#navbar-supported-content" 
+                    aria-controls="navbar-supported-content" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation"
+                    onClick={() => setIsShow(!isShow)}
+                >
                     <i className="fa fa-bars" />
                 </button>
 
                 <a className="navbar-brand rufina h5 m-0 p-0" href="#">Optik Atan Raya Jogja</a>
 
+                <a href="tel:+62-877-7145-9754" target="_blank" rel="noopener" className="btn btn-primary square ml-auto shadow-sm d-block d-lg-none">
+                    <i className="fa fa-phone fa-lg" />
+                </a>
 
-                <div id="navbar-supported-content" className="collapse navbar-collapse">
-                    <ul className="navbar-nav ml-auto">
+                <div id="navbar-supported-content" className={`${isShow ? 'show' : ''} collapse navbar-collapse`}>
+                    <ul className="navbar-nav mt-2 mt-lg-0 ml-auto">
                         <li className="nav-item">
                             <Link
                                 activeClass="active"
@@ -94,16 +109,9 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                {/* Order Button */}
-                <div className="ml-auto ml-lg-3">
-                    <button className="btn btn-primary shadow-sm d-none d-lg-block">
-                        ORDER NOW
-                    </button>
-
-                    <button className="btn btn-primary square shadow-sm d-block d-lg-none">
-                        <i className="fa fa-phone fa-lg" />
-                    </button>
-                </div>
+                <a href="tel:+62-877-7145-9754" target="_blank" rel="noopener" className="btn btn-primary ml-3 shadow-sm d-none d-lg-block">
+                    ORDER NOW
+                </a>
             </div>
         </nav>
     );

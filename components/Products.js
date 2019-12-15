@@ -8,24 +8,32 @@ import { SliderNextArrow, SliderPrevArrow } from './SliderArrows';
 const ProductsItem = ({ image, group }) => {
     return (
         <div className="products-item shadow-sm overflow-hidden">
-            <LightgalleryItem group={group} src={image}>
+            <LightgalleryItem 
+                subHtml={`
+                    <h2 class="h6 font-weight-bold mb-0">Frame BVL4032</h2>
+                    <p class="small mb-0">IDR 150.000· 60#14-145</p>
+                `}
+                group={group} 
+                src={image}>
                 <div className="item-image">
                     <figure className="effect-chico w-100 h-100">
                         <img src={image} alt="Products Item" className="fit-width" />
 
                         <figcaption>
                             <p className="font-weight-bold">
-                                <button className="btn btn-outline-light shadow-sm">VIEW DETAIL</button>
+                                <button className="btn btn-outline-light square shadow-sm">
+                                    <i className="fa fa-expand fa-lg" />
+                                </button>
                             </p>
-                            <a>View more</a>
+                            {/* <a>View more</a> */}
                         </figcaption>
                     </figure>
                 </div>
             </LightgalleryItem>
 
             <div className="item-text w-100 p-3">
-                <h2 className="h6 font-weight-bold mb-0">Frame BVL4032</h2>
-                <p className="small text-muted mb-0">IDR 1.000.000· 60#14-145</p>
+                <h2 className="h6 font-weight-bold mb-0">Frame + Lensa Anti Radiasi EMI</h2>
+                <p className="small text-muted mb-0">IDR 150.000· 50#18-138</p>
             </div>
         </div >
     );
@@ -83,9 +91,9 @@ const Products = ({ id, title }) => {
                     <div className="products-body m-min-1">
                         <LightgalleryProvider>
                             <Slider {...settings}>
-                                {[...Array(7)].map((_, key) => (
+                                {[...Array(5)].map((_, key) => (
                                     <div className="p-1" key={key}>
-                                        <ProductsItem image={`https://picsum.photos/id/17${key}/300/300`} group={id} />
+                                        <ProductsItem image="/static/images/products-4.jpg" group={id} />
                                     </div>
                                 ))}
                             </Slider>

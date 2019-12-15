@@ -25,11 +25,11 @@ const MySlider = () => {
                     <div className="slider-item position-relative d-flex justify-content-center align-items-center h-100" key={key}>
                         <div className="item-text-container position-absolute left-0 w-100">
                             <div className="container">
-                                <div className="item-text col-lg-4 px-0">
+                                <div className="item-text text-center text-lg-left text-shadow-sm col-lg-4 px-0">
                                     <h2 className="rufina h5 m-0">Welcome to</h2>
                                     <h1 className="rufina h2 mb-3">Optik Atan Raya Jogja</h1>
-                                    <hr className="divider border-white mb-3" />
-                                    <p className="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                                    <hr className="divider border-white mx-auto mx-lg-0 mb-3" />
+                                    <p className="small mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                                 </div>
                             </div>
                         </div>
