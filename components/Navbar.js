@@ -7,22 +7,24 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-white p-2 shadow-sm" id="navbar">
             <div className="container">
-                <button 
-                    className="navbar-toggler square mr-auto rounded-0" 
-                    type="button" 
-                    data-toggle="collapse" 
-                    data-target="#navbar-supported-content" 
-                    aria-controls="navbar-supported-content" 
-                    aria-expanded="false" 
+                <button
+                    className="navbar-toggler square mr-auto rounded-0"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbar-supported-content"
+                    aria-controls="navbar-supported-content"
+                    aria-expanded="false"
                     aria-label="Toggle navigation"
                     onClick={() => setIsShow(!isShow)}
                 >
                     <i className="fa fa-bars" />
                 </button>
 
+
                 <a className="navbar-brand rufina h5 m-0 p-0" href="#">Optik Atan Raya Jogja</a>
 
-                <a href="tel:+62-877-7145-9754" target="_blank" rel="noopener" className="btn btn-primary square ml-auto shadow-sm d-block d-lg-none">
+
+                <a href="tel:+62-877-7145-9754" target="_blank" rel="noopener" className="btn btn-primary square ml-auto shadow-sm d-inline-flex d-lg-none">
                     <i className="fa fa-phone fa-lg" />
                 </a>
 
