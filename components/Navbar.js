@@ -1,7 +1,58 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-scroll';
+import ContentLoader from 'react-content-loader';
 
-const Navbar = () => {
+/* Helpers */
+import { range } from '../helpers';
+
+const NavbarNavItem = ({ title, link }) => {
+    return (
+        <li className="nav-item">
+            <Link
+                activeClass="active"
+                className="nav-link"
+                to={link}
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-61}
+            >
+                {title}
+            </Link>
+        </li>
+    );
+};
+
+const NavbarNavItemLoader = () => (
+    <li className="nav-item">
+        <span className="nav-link">
+            <ContentLoader
+                height={19}
+                width={80}
+                speed={2}
+                primaryColor="#f3f3f3"
+                secondaryColor="#ecebeb"
+                style={{ height: 19 }}
+            >
+            </ContentLoader >
+        </span>
+    </li>
+)
+
+const NavbarBrandLoader = () => (
+    <ContentLoader
+        height={26}
+        width={216}
+        speed={2}
+        primaryColor="#f3f3f3"
+        secondaryColor="#ecebeb"
+        style={{ height: 26 }}
+    >
+    </ContentLoader >
+)
+
+const Navbar = ({ company, nav }) => {
     const [isShow, setIsShow] = useState(false);
 
     return (
@@ -21,7 +72,9 @@ const Navbar = () => {
                 </button>
 
 
-                <a className="navbar-brand rufina h5 m-0 p-0" href="#">Optik Atan Raya Jogja</a>
+                <a className="navbar-brand rufina h5 m-0 p-0" href="#">
+                    {company.title ? company.title : (<NavbarBrandLoader />)}
+                </a>
 
 
                 <a href="tel:+62-877-7145-9754" target="_blank" rel="noopener" className="btn btn-primary square ml-auto shadow-sm d-inline-flex d-lg-none">
@@ -30,84 +83,11 @@ const Navbar = () => {
 
                 <div id="navbar-supported-content" className={`${isShow ? 'show' : ''} collapse navbar-collapse`}>
                     <ul className="navbar-nav mt-2 mt-lg-0 ml-auto">
-                        <li className="nav-item">
-                            <Link
-                                activeClass="active"
-                                className="nav-link"
-                                to="slider"
-                                spy={true}
-                                smooth={true}
-                                duration={500}
-                                offset={-61}
-                            >
-                                Home
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link
-                                activeClass="active"
-                                className="nav-link"
-                                to="mens-collections"
-                                spy={true}
-                                smooth={true}
-                                duration={500}
-                                offset={-61}
-                            >
-                                Men's
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link
-                                activeClass="active"
-                                className="nav-link"
-                                to="womens-collections"
-                                spy={true}
-                                smooth={true}
-                                duration={500}
-                                offset={-61}
-                            >
-                                Women's
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link
-                                activeClass="active"
-                                className="nav-link"
-                                to="kids-collections"
-                                spy={true}
-                                smooth={true}
-                                duration={500}
-                                offset={-61}
-                            >
-                                Kid's
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link
-                                activeClass="active"
-                                className="nav-link"
-                                to="accessories"
-                                spy={true}
-                                smooth={true}
-                                duration={500}
-                                offset={-61}
-                            >
-                                Accessories
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link
-                                activeClass="active"
-                                className="nav-link"
-                                to="gallery"
-                                spy={true}
-                                smooth={true}
-                                duration={500}
-                                offset={-61}
-                            >
-                                Gallery
-                            </Link>
-                        </li>
+                        {nav.length ? nav.map((navItem) => (
+                            <NavbarNavItem title={navItem.title} link={navItem.link} key={navItem.id} />
+                        )) : range(0, 5).map((key) => (
+                            <NavbarNavItemLoader key={key} />
+                        ))}
                     </ul>
                 </div>
 
@@ -118,5 +98,15 @@ const Navbar = () => {
         </nav>
     );
 }
+
+Navbar.propTypes = {
+    company: PropTypes.object.isRequired,
+    nav: PropTypes.array.isRequired,
+};
+
+NavbarNavItem.propTypes = {
+    title: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+};
 
 export default Navbar;

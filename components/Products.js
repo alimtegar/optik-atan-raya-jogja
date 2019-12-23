@@ -1,19 +1,23 @@
 import PropTypes from 'prop-types'
 import Slider from "react-slick";
 import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery";
+import ContentLoader from 'react-content-loader'
 
 /* Components */
 import { SliderNextArrow, SliderPrevArrow } from './SliderArrows';
 
+/* Helpers */
+import { range } from '../helpers';
+
 const ProductsItem = ({ image, group }) => {
     return (
         <div className="products-item shadow-sm overflow-hidden">
-            <LightgalleryItem 
+            <LightgalleryItem
                 subHtml={`
                     <h2 class="h6 font-weight-bold mb-0">Frame BVL4032</h2>
                     <p class="small mb-0">IDR 150.000· 60#14-145</p>
                 `}
-                group={group} 
+                group={group}
                 src={image}>
                 <div className="item-image">
                     <figure className="effect-chico w-100 h-100">
@@ -39,7 +43,23 @@ const ProductsItem = ({ image, group }) => {
     );
 };
 
-const Products = ({ id, title }) => {
+const ProductsItemLoader = () => (
+    <ContentLoader
+        height={500}
+        width={400}
+        speed={2}
+        primaryColor="#f3f3f3"
+        secondaryColor="#ecebeb"
+    >
+        <rect x="0" y="0" rx="5" ry="5" width="400" height="400" />
+
+        <rect x="24" y="424" rx="4" ry="4" width="250" height="20" />
+        <rect x="24" y="458" rx="4" ry="4" width="200" height="14" />
+    </ContentLoader>
+
+);
+
+const Products = ({ id, title, products }) => {
     const settings = {
         dots: false,
         infinite: false,
@@ -91,9 +111,13 @@ const Products = ({ id, title }) => {
                     <div className="products-body m-min-1">
                         <LightgalleryProvider>
                             <Slider {...settings}>
-                                {[...Array(5)].map((_, key) => (
+                                {products.length ? products.map((_, key) => (
                                     <div className="p-1" key={key}>
                                         <ProductsItem image="/static/images/products-4.jpg" group={id} />
+                                    </div>
+                                )) : range(0, 5).map((key) => (
+                                    <div className="p-1" key={key}>
+                                        <ProductsItemLoader />
                                     </div>
                                 ))}
                             </Slider>
@@ -108,6 +132,7 @@ const Products = ({ id, title }) => {
 Products.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    products: PropTypes.array.isRequired,
 };
 
 ProductsItem.propTypes = {

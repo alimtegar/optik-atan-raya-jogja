@@ -1,16 +1,19 @@
+import PropTypes from 'prop-types';
 import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery";
+import ContentLoader from 'react-content-loader'
+import { fixUrl, range } from '../helpers';
 
-const GalleryItem = ({ image, group }) => {
+const GalleryItem = ({ title, image, group }) => {
     return (
         <div className="gallery-item shadow-sm">
             <LightgalleryItem group={group} src={image}>
                 <div className="item-image">
                     <figure className="effect-chico w-100 h-100">
-                        <img src={image} alt="Products Item" className="fit-width" />
+                        <img src={image} alt={title} className="fit-width" />
 
                         <figcaption>
                             <p className="font-weight-bold">
-                            <button className="btn btn-outline-light square shadow-sm">
+                                <button className="btn btn-outline-light square shadow-sm">
                                     <i className="fa fa-expand fa-lg" />
                                 </button>
                             </p>
@@ -23,7 +26,18 @@ const GalleryItem = ({ image, group }) => {
     );
 };
 
-const Gallery = () => {    
+const GalleryItemLoader = () => (
+    <ContentLoader
+        height={400}
+        width={400}
+        speed={2}
+        primaryColor="#f3f3f3"
+        secondaryColor="#ecebeb"
+    >
+    </ContentLoader>
+);
+
+const Gallery = ({ galleryImages }) => {
     return (
         <section id="gallery" className="py-5">
             <div className="container">
@@ -35,9 +49,13 @@ const Gallery = () => {
                 <div className="gallery-body">
                     <LightgalleryProvider>
                         <div className="row m-min-1">
-                            {[...Array(7)].map((_, key) => (
+                            {galleryImages.length ? galleryImages.map((galleryImage) => (
+                                <div className="col-6 col-lg-3 p-1" key={galleryImage.id}>
+                                    <GalleryItem title={galleryImage.title} image={fixUrl(process.env.ADMIN_URL) + galleryImage.image.url} group="gallery" />
+                                </div>
+                            )) : range(0, 7).map((key) => (
                                 <div className="col-6 col-lg-3 p-1" key={key}>
-                                    <GalleryItem image={`https://picsum.photos/id/16${key}/300/300`} group="gallery"/>
+                                    <GalleryItemLoader />
                                 </div>
                             ))}
                         </div>
@@ -46,6 +64,16 @@ const Gallery = () => {
             </div>
         </section>
     );
+};
+
+Gallery.propTypes = {
+    galleryImages: PropTypes.array.isRequired,
+};
+
+GalleryItem.propTypes = {
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    group: PropTypes.string.isRequired,
 };
 
 export default Gallery;

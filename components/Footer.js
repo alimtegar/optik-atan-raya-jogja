@@ -1,6 +1,66 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-scroll';
+import ContentLoader from 'react-content-loader'
 
-const Footer = () => {
+/* Helpers */
+import { range } from '../helpers';
+
+const FooterNavItem = ({ title, link }) => (
+    <li className="nav-item">
+        <Link
+            className="nav-link"
+            to={link}
+            smooth={true}
+            duration={500}
+            offset={-61}
+        >
+            {title}
+        </Link>
+    </li>
+)
+
+const FooterNavItemLoader = () => (
+    <li className="nav-item">
+        <span className="nav-link">
+            <ContentLoader
+                height={12}
+                width={100}
+                speed={2}
+                primaryColor="#7e392e"
+                secondaryColor="#7b372e"
+                style={{ height: 12 }}
+            >
+            </ContentLoader >
+        </span>
+    </li>
+)
+
+const FooterSocialMedia = ({ icon, title, link }) => (
+    <li className="nav-item">
+        <a href={link} target="_blank" rel="noopener" className={'nav-link ' + title.toLowerCase()}>
+            <i className={'fab fa-lg fa-' + icon} />
+        </a>
+    </li>
+)
+
+const FooterSocialMediaLoader = ({ icon, title, link }) => (
+    <li className="nav-item">
+        <span className="nav-link">
+            <ContentLoader
+                height={45}
+                width={45}
+                speed={2}
+                primaryColor="#7e392e"
+                secondaryColor="#7b372e"
+                style={{ height: 45 }}
+            >
+            </ContentLoader >
+        </span>
+    </li>
+)
+
+const Footer = ({ company, nav, businessHours, socialMedias }) => {
+    console.log(socialMedias);
     return (
         <footer id="footer" className="bg-primary text-white text-center text-lg-left">
             <div className="container">
@@ -28,73 +88,13 @@ const Footer = () => {
                         <div className="col-lg-3">
                             <div className="footer-nav mb-5 mb-lg-0">
                                 <h1 className="h5 font-weight-bold mb-4">Navigation</h1>
+
                                 <ul className="nav flex-column small">
-                                <li className="nav-item">
-                                    <Link
-                                        className="nav-link"
-                                        to="slider"
-                                        smooth={true}
-                                        duration={500}
-                                        offset={-61}
-                                    >
-                                        Home
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link
-                                        className="nav-link"
-                                        to="mens-collections"
-                                        smooth={true}
-                                        duration={500}
-                                        offset={-61}
-                                    >
-                                        Men's
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link
-                                        className="nav-link"
-                                        to="womens-collections"
-                                        smooth={true}
-                                        duration={500}
-                                        offset={-61}
-                                    >
-                                        Women's
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link
-                                        className="nav-link"
-                                        to="kids-collections"
-                                        smooth={true}
-                                        duration={500}
-                                        offset={-61}
-                                    >
-                                        Kid's
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link
-                                        className="nav-link"
-                                        to="accessories"
-                                        smooth={true}
-                                        duration={500}
-                                        offset={-61}
-                                    >
-                                        Accessories
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link
-                                        className="nav-link"
-                                        to="gallery"
-                                        smooth={true}
-                                        duration={500}
-                                        offset={-61}
-                                    >
-                                        Gallery
-                                    </Link>
-                                </li>
+                                    {nav.length ? nav.map((navItem) => (
+                                        <FooterNavItem title={navItem.title} link={navItem.link} key={navItem.id} />
+                                    )) : range(0, 5).map((key) => (
+                                        <FooterNavItemLoader key={key} />
+                                    ))}
                                 </ul>
                             </div>
                         </div>
@@ -152,29 +152,14 @@ const Footer = () => {
 
                         {/* Social Media */}
                         <div className="col-lg-3">
-                            <div className="footer-social-media">
+                            <div className="footer-social-medias">
                                 <h1 className="h5 font-weight-bold mb-4">Follow Us</h1>
                                 <ul className="nav m-min-1 justify-content-center justify-content-lg-start">
-                                    <li className="nav-item">
-                                        <a href="#" className="nav-link facebook">
-                                            <i className="fab fa-facebook-f fa-lg" />
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="#" className="nav-link twitter">
-                                            <i className="fab fa-twitter fa-lg" />
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="#" className="nav-link instagram">
-                                            <i className="fab fa-instagram fa-lg" />
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="#" className="nav-link whatsapp">
-                                            <i className="fab fa-whatsapp fa-lg" />
-                                        </a>
-                                    </li>
+                                    {socialMedias.length ? socialMedias.map((socialMedia) => (
+                                        <FooterSocialMedia icon={socialMedia.icon} title={socialMedia.title} link={socialMedia.link} key={socialMedia.id} />
+                                    )) : range(0, 3).map((key) => (
+                                        <FooterSocialMediaLoader key={key} />
+                                    ))}
                                 </ul>
                             </div>
                         </div>
@@ -190,6 +175,24 @@ const Footer = () => {
 
         </footer>
     );
+};
+
+Footer.propTypes = {
+    company: PropTypes.object.isRequired,
+    nav: PropTypes.array.isRequired,
+    businessHours: PropTypes.array.isRequired,
+    socialMedias: PropTypes.array.isRequired,
+};
+
+FooterNavItem.propTypes = {
+    title: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+};
+
+FooterSocialMedia.propTypes = {
+    icon: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
 };
 
 export default Footer;

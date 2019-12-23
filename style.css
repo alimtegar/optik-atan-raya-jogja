@@ -151,8 +151,8 @@ a { cursor: pointer; }
 
 #slider .slick-slider { position: unset; }
 
-#slider .slick-slider .slick-prev.slick-disabled { left: -45px; }
-#slider .slick-slider .slick-next.slick-disabled { right: -45px; }
+#slider .slick-slider .slick-prev.slick-disabled { left: -46px; }
+#slider .slick-slider .slick-next.slick-disabled { right: -46px; }
 
 #slider .slick-slider .slick-prev, 
 #slider .slick-slider .slick-next {
@@ -184,8 +184,8 @@ a { cursor: pointer; }
 
 .products .slick-slider { position: unset; }
 
-.products .slick-slider .slick-prev.slick-disabled { left: -45px; }
-.products .slick-slider .slick-next.slick-disabled { right: -45px; }
+.products .slick-slider .slick-prev.slick-disabled { left: -46px; }
+.products .slick-slider .slick-next.slick-disabled { right: -46px; }
 
 .products .slick-slider .slick-prev, 
 .products .slick-slider .slick-next {
@@ -220,7 +220,8 @@ a { cursor: pointer; }
 
 /* --- Navigation --- */
 #footer .footer-nav ul li:not(:last-child) { border-bottom: 1px solid transparent; }
-#footer .footer-nav ul li a {
+#footer .footer-nav ul li a,
+#footer .footer-nav ul li span {
     color: inherit;
     padding: 0.25rem 0;
 }
@@ -230,7 +231,7 @@ a { cursor: pointer; }
 }
 
 /* --- Social Media --- */ 
-#footer .footer-social-media ul li a {
+#footer .footer-social-medias ul li a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -239,17 +240,23 @@ a { cursor: pointer; }
     height: 45px;
     margin: 0.25rem;
     padding: 0;
-    border: 2px solid #fff;
+	border: 2px solid #fff;
+	transition: 0.25s;
 }
 
-#footer .footer-social-media ul li a:hover {
+#footer .footer-social-medias ul li span {
+	padding: 0;
+	margin: 0.25rem;
+}
+
+#footer .footer-social-medias ul li a:hover {
     color: #fff;
 }
 
-#footer .footer-social-media ul li a.facebook:hover { background: #1877f2; border-color: #1877f2; }
-#footer .footer-social-media ul li a.twitter:hover { background: #1da1f2; border-color: #1da1f2; }
-#footer .footer-social-media ul li a.instagram:hover { background: #c32aa3; border-color: #c32aa3; }
-#footer .footer-social-media ul li a.whatsapp:hover { background: #25d366; border-color: #25d366; }
+#footer .footer-social-medias ul li a.facebook:hover { background: #1877f2; border-color: #1877f2; }
+#footer .footer-social-medias ul li a.twitter:hover { background: #1da1f2; border-color: #1da1f2; }
+#footer .footer-social-medias ul li a.instagram:hover { background: #c32aa3; border-color: #c32aa3; }
+#footer .footer-social-medias ul li a.whatsapp:hover { background: #25d366; border-color: #25d366; }
 
 /* --- Copyright --- */
 #footer .footer-copyright a {
