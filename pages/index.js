@@ -104,7 +104,7 @@ const Index = () => {
         fetch(adminUrl + '/business-hours')
             .then((res) => res.json())
             .then((data) => {
-                setGalleryImages(data);
+                setBusinessHours(data);
             })
             .catch((err) => {
                 console.log(err);

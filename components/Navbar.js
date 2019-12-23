@@ -40,18 +40,6 @@ const NavbarNavItemLoader = () => (
     </li>
 )
 
-const NavbarBrandLoader = () => (
-    <ContentLoader
-        height={26}
-        width={216}
-        speed={2}
-        primaryColor="#f3f3f3"
-        secondaryColor="#ecebeb"
-        style={{ height: 26 }}
-    >
-    </ContentLoader >
-)
-
 const Navbar = ({ company, nav }) => {
     const [isShow, setIsShow] = useState(false);
 
@@ -73,7 +61,14 @@ const Navbar = ({ company, nav }) => {
 
 
                 <a className="navbar-brand rufina h5 m-0 p-0" href="#">
-                    {company.title ? company.title : (<NavbarBrandLoader />)}
+                    {company.title ? company.title : (<ContentLoader
+                        height={26}
+                        width={216}
+                        speed={2}
+                        primaryColor="#f3f3f3"
+                        secondaryColor="#ecebeb"
+                        style={{ height: 26 }}
+                    />)}
                 </a>
 
 

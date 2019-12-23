@@ -26,8 +26,8 @@ const FooterNavItemLoader = () => (
                 height={12}
                 width={100}
                 speed={2}
-                primaryColor="#7e392e"
-                secondaryColor="#7b372e"
+                primaryColor="#8b463d"
+                secondaryColor="#8e4b42"
                 style={{ height: 12 }}
             >
             </ContentLoader >
@@ -50,8 +50,8 @@ const FooterSocialMediaLoader = ({ icon, title, link }) => (
                 height={45}
                 width={45}
                 speed={2}
-                primaryColor="#7e392e"
-                secondaryColor="#7b372e"
+                primaryColor="#8b463d"
+                secondaryColor="#8e4b42"
                 style={{ height: 45 }}
             >
             </ContentLoader >
@@ -70,7 +70,16 @@ const Footer = ({ company, nav, businessHours, socialMedias }) => {
                         {/* Infomration */}
                         <div className="col-lg-3">
                             <div className="footer-information mb-5 mb-lg-0">
-                                <h1 className="rufina h5 mb-4 pb-1">Optik Atan Raya Jogja</h1>
+                                <h1 className="rufina h5 mb-4 pb-1">
+                                    {company.title ? company.title : (<ContentLoader
+                                        height={26}
+                                        width={216}
+                                        speed={2}
+                                        primaryColor="#8b463d"
+                                        secondaryColor="#8e4b42"
+                                        style={{ height: 26 }}
+                                    />)}
+                                </h1>
 
                                 <div className="mb-3">
                                     <h2 className="small font-weight-bold mb-1"> <i className="fa fa-map-marker-alt mr-1" /> Address</h2>
@@ -79,7 +88,16 @@ const Footer = ({ company, nav, businessHours, socialMedias }) => {
 
                                 <div>
                                     <h2 className="small font-weight-bold mb-1"> <i className="fa fa-phone mr-1" /> Contact</h2>
-                                    <p className="small mb-0">0877-7145-9754</p>
+                                    <p className="small mb-0">
+                                        {company.phone ? company.phone : (<ContentLoader
+                                            height={12}
+                                            width={100}
+                                            speed={2}
+                                            primaryColor="#8b463d"
+                                            secondaryColor="#8e4b42"
+                                            style={{ height: 12 }}
+                                        />)}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +188,19 @@ const Footer = ({ company, nav, businessHours, socialMedias }) => {
 
             {/* Copyright */}
             <div className="footer-copyright text-center py-3 px-2 border-top border-white-transparent">
-                <p className="small mb-0">&copy; <a href="#">Optik Atan Raya Jogja</a> 2019 · Developed by <a href="#">Alterweb</a></p>
+                <p className="small mb-0">
+                {company.title ? (
+                    <span>&copy; <a href="#">Optik Atan Raya Jogja</a> 2019 · Developed by <a href="#">Alterweb</a></span>
+                ) : (<ContentLoader
+                    height={12}
+                    width={400}
+                    speed={2}
+                    primaryColor="#8b463d"
+                    secondaryColor="#8e4b42"
+                    style={{ height: 12 }}
+                />)}
+                    
+                </p>
             </div>
 
         </footer>
