@@ -5,21 +5,24 @@ import ContentLoader from 'react-content-loader'
 /* Components */
 import { SliderNextArrow, SliderPrevArrow } from './SliderArrows';
 
-const MySliderItem = () => {
+/* Helpers */
+import { fixUrl } from '../helpers';
+
+const MySliderItem = ({title, subtitle, description, image}) => {
     return (
         <div className="slider-item position-relative d-flex justify-content-center align-items-center h-100">
             <div className="item-text-container position-absolute left-0 w-100">
                 <div className="container">
                     <div className="item-text text-center text-lg-left text-shadow-sm col-lg-4 px-0">
-                        <h2 className="rufina h5 m-0">Welcome to</h2>
-                        <h1 className="rufina h2 mb-3">Optik Atan Raya Jogja</h1>
+                        <h2 className="rufina h5 m-0">{subtitle}</h2>
+                        <h1 className="rufina h2 mb-3">{title}</h1>
                         <hr className="divider border-white mx-auto mx-lg-0 mb-3" />
-                        <p className="small mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                        <p className="small mb-0">{description}</p>
                     </div>
                 </div>
             </div>
 
-            <img src="/static/images/slider.jpeg" className="fit-width" alt="Slider Item 1" />
+            <img src={image} className="fit-width" alt={title} />
         </div>
     );
 };
@@ -30,7 +33,9 @@ const MySliderItemLoader = () => (
         primaryColor="#f3f3f3"
         secondaryColor="#ecebeb"
         className="w-100 h-100"
-    />
+    >
+        <rect x="0" y="0" rx="0" ry="0" width="100%" height="100%" />
+    </ContentLoader>
 )
 
 const MySlider = ({ sliderImages }) => {
@@ -50,8 +55,8 @@ const MySlider = ({ sliderImages }) => {
     return (
         <div id="slider" className="position-relative text-white overflow-hidden">
             <Slider {...settings}>
-                {sliderImages.length ? sliderImages.map((_, key) => (
-                    <MySliderItem key={key} />
+                {sliderImages.length ? sliderImages.map((sliderImage, key) => (
+                    <MySliderItem title={sliderImage.title} subtitle={sliderImage.subtitle} description={sliderImage.description} image={fixUrl(process.env.ADMIN_URL) + sliderImage.image.url} key={sliderImage.id} />
                 )) : (<MySliderItemLoader />)}
             </Slider>
         </div>
@@ -60,6 +65,13 @@ const MySlider = ({ sliderImages }) => {
 
 MySlider.propTypes = {
     sliderImages: PropTypes.array.isRequired,
+}
+
+MySliderItem.propTypes = {
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
 }
 
 export default MySlider;

@@ -2,7 +2,7 @@ export const isContainsProtocol = (str) => {
     return str.indexOf("http://") == 0 || str.indexOf("https://") == 0;
 };
 
-export const fixUrl = (url, isSecure) => {
+export const fixUrl = (url, isSecure = true) => {
     const protocol = isSecure ? 'https' : 'http';
 
     return isContainsProtocol(url) ? url : protocol + '://' + url;
@@ -35,4 +35,9 @@ export const escapedNewLineToLineBreakTag = (string) => {
     return string.split('\n').map((item, index) => {
         return (index === 0) ? item : [<br key={index} />, item]
     })
-}
+};
+
+export const formatNumber = (number) => {
+    console.log(number);
+    return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+};

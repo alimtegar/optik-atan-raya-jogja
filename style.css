@@ -11,6 +11,9 @@ a { cursor: pointer; }
 
 /* ------ Custom and Redefined Utilities ------ */
 /* --- Slick Slider --- */
+.slick-track {
+	margin-left: unset !important;
+}
 .slick-dots { 
     position: unset !important; 
     display: flex !important;
@@ -58,6 +61,8 @@ a { cursor: pointer; }
 .x-1 { transform: translateX(1px);}
 .x-2 { transform: translateX(2px);}
 
+.y-min-1 { transform: translateY(-1px);}
+
 /* --- Space --- */
 .py-6 { padding-top: 4.5rem; padding-bottom: 4.5rem; }
 
@@ -92,7 +97,7 @@ a { cursor: pointer; }
 /* --- Typography --- */
 .rufina { font-family: 'Merriweather', serif; }
 
-.small, small { font-size: 14px; }
+.small, small { font-size: 14px !important; }
 .medium { font-size: 16px; }
 
 /* --- Form --- */
@@ -116,6 +121,9 @@ a { cursor: pointer; }
 .btn-dark-transparent:hover {
 	background: #111;
 }
+
+.btn-outline-light { border-color: #fff; }
+.btn-outline-light:hover { background: #fff; }
 
 /* ------ Navbar ------ */
 #navbar .navbar-nav .nav-item .nav-link {
@@ -336,59 +344,59 @@ figure p {
 	font-size: 68.5%;
 }
 
-/* Individual effects */
-/*---------------*/
-/***** Chico *****/
-/*---------------*/
-figure.effect-chico img {
-	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s;
-	-webkit-transform: scale(1.12);
-	transform: scale(1.12);
+/*-----------------*/
+/***** Goliath *****/
+/*-----------------*/
+
+figure.effect-goliath img,
+figure.effect-goliath h2 {
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
 }
 
-figure.effect-chico:hover img {
-	opacity: 0.16;
-	-webkit-transform: scale(1);
-	transform: scale(1);
+figure.effect-goliath img {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 
-figure.effect-chico figcaption::before {
+figure.effect-goliath h2,
+figure.effect-goliath p {
 	position: absolute;
-	top: 30px;
-	right: 30px;
-	bottom: 30px;
-	left: 30px;
-	content: '';
-	-webkit-transform: scale(1.1);
-	transform: scale(1.1);
+	bottom: 0;
+	left: 0;
+	padding: 0.5rem 1rem;
 }
 
-figure.effect-chico figcaption::before,
-figure.effect-chico p {
+figure.effect-goliath p {
+	background: rgba(17, 17, 17, 0.83);
+	width: 100%;
+	text-transform: none;
+	font-size: 13px;
+	font-weight: bold;
 	opacity: 0;
+	text-align: left;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(0,50px,0);
+	transform: translate3d(0,50px,0);
 }
 
-figure.effect-chico h2 {
-	padding: 20% 0 20px 0;
+/* figure.effect-goliath:hover img {
+	-webkit-transform: translate3d(0,-46px,0);
+	transform: translate3d(0,-46px,0);
+} */
+
+figure.effect-goliath:hover h2 {
+	-webkit-transform: translate3d(0,-100px,0);
+	transform: translate3d(0,-100px,0);
 }
 
-figure.effect-chico p {
-    position: absolute;
-	margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
-}
-
-figure.effect-chico:hover figcaption::before,
-figure.effect-chico:hover p {
+figure.effect-goliath:hover p {
 	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
 }
+
 
 /* ------ Responsive ------ */
 @media only screen and (max-width: 1080px) {

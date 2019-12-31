@@ -7,27 +7,26 @@ import ContentLoader from 'react-content-loader'
 import { SliderNextArrow, SliderPrevArrow } from './SliderArrows';
 
 /* Helpers */
-import { range } from '../helpers';
+import { fixUrl, range, formatNumber } from '../helpers';
 
-const ProductsItem = ({ image, group }) => {
+const ProductsItem = ({ title, size, price, image, group }) => {
     return (
         <div className="products-item shadow-sm overflow-hidden">
             <LightgalleryItem
                 subHtml={`
-                    <h2 class="h6 font-weight-bold mb-0">Frame BVL4032</h2>
-                    <p class="small mb-0">IDR 150.000· 60#14-145</p>
+                    <h2 class="h6 font-weight-bold mb-0">${title}</h2>
+                    <p class="small mb-0">IDR ${formatNumber(price)} · ${size}</p>
                 `}
                 group={group}
                 src={image}>
                 <div className="item-image">
-                    <figure className="effect-chico w-100 h-100">
+                    <figure className="effect-goliath w-100 h-100">
                         <img src={image} alt="Products Item" className="fit-width" />
 
                         <figcaption>
-                            <p className="font-weight-bold">
-                                <button className="btn btn-outline-light square shadow-sm" aria-label="View Detail">
-                                    <i className="fa fa-expand fa-lg" />
-                                </button>
+                            <p class="d-flex align-items-center">
+                                <span>Click to Preview</span>
+                                 <i className="fa fa-chevron-right fa-sm ml-auto" />
                             </p>
                         </figcaption>
                     </figure>
@@ -35,8 +34,10 @@ const ProductsItem = ({ image, group }) => {
             </LightgalleryItem>
 
             <div className="item-text w-100 p-3">
-                <h2 className="h6 font-weight-bold mb-0">Frame + Lensa Anti Radiasi EMI</h2>
-                <p className="small text-muted mb-0">IDR 150.000· 50#18-138</p>
+                <h2 className="h6 font-weight-bold mb-0">{title}</h2>
+                <p className="small text-muted mb-0">
+                    <span>IDR {formatNumber(price)}</span> · {size}
+                </p>
             </div>
         </div >
     );
@@ -109,11 +110,11 @@ const Products = ({ id, title, products }) => {
                     <div className="products-body m-min-1">
                         <LightgalleryProvider>
                             <Slider {...settings}>
-                                {products.length ? products.map((_, key) => (
-                                    <div className="p-1" key={key}>
-                                        <ProductsItem image="/static/images/products-4.jpg" group={id} />
+                                {products.length ? products.map((product) => (
+                                    <div className="p-1" key={product.id}>
+                                        <ProductsItem title={product.title} size={product.size} price={product.price} image={fixUrl(process.env.ADMIN_URL) + product.image.url} group={id} />
                                     </div>
-                                )) : range(0, 5).map((key) => (
+                                )) : range(0, 4).map((key) => (
                                     <div className="p-1" key={key}>
                                         <ProductsItemLoader />
                                     </div>
@@ -134,6 +135,9 @@ Products.propTypes = {
 };
 
 ProductsItem.propTypes = {
+    title: PropTypes.string.isRequired,
+    size: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     group: PropTypes.string.isRequired,
 };

@@ -8,14 +8,13 @@ const GalleryItem = ({ title, image, group }) => {
         <div className="gallery-item shadow-sm">
             <LightgalleryItem group={group} src={image}>
                 <div className="item-image">
-                    <figure className="effect-chico w-100 h-100">
+                    <figure className="effect-goliath w-100 h-100">
                         <img src={image} alt={title} className="fit-width" />
 
                         <figcaption>
-                            <p className="font-weight-bold">
-                                <button className="btn btn-outline-light square shadow-sm" aria-label="View Detail">
-                                    <i className="fa fa-expand fa-lg" />
-                                </button>
+                            <p class="d-flex align-items-center">
+                                <span>Click to Preview</span>
+                                 <i className="fa fa-chevron-right fa-sm ml-auto" />
                             </p>
                         </figcaption>
                     </figure>
