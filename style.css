@@ -5,6 +5,10 @@ html, body {
 
 a { cursor: pointer; }
 
+/* svg {
+	display: block;
+} */
+
 /* ------ Custom and Redefined Utilities ------ */
 /* --- Slick Slider --- */
 .slick-dots { 

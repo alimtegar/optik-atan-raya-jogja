@@ -15,7 +15,9 @@ import { fixUrl } from '../helpers';
 
 const Index = () => {
     /* States */
-    const [company, setCompany] = useState({});
+    const [company, setCompany] = useState({
+        Embed_map: '',
+    });
     const [nav, setNav] = useState([]);
     const [sliderImages, setSliderImages] = useState([]);
     const [mensProducts, setMensProducts] = useState([]);
@@ -135,7 +137,7 @@ const Index = () => {
                 <Products id="kid-s-collections" title="Kid's Collections" products={kidsProducts} />
                 <Products id="accessories" title="Accessories" products={accsProducts} />
                 <Gallery galleryImages={galleryImages} />
-                <EmbedMap className="mt-5 mb-min-2" embedMap={company.Embed_map} />
+                <EmbedMap className="mt-5" embedMap={company.Embed_map} />
                 <Footer company={company} businessHours={businessHours} nav={nav} socialMedias={socialMedias} />
             </main>
         </div>

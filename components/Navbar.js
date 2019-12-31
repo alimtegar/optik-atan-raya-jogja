@@ -28,13 +28,14 @@ const NavbarNavItemLoader = () => (
     <li className="nav-item">
         <span className="nav-link">
             <ContentLoader
-                height={19}
-                width={80}
+                height={14}
+                width={88}
                 speed={2}
                 primaryColor="#f3f3f3"
                 secondaryColor="#ecebeb"
-                style={{ height: 19 }}
+                style={{ marginTop: -2.5, height: 14 }}
             >
+                <rect x="0" y="0" rx="4" ry="4" width="88" height="14" />
             </ContentLoader >
         </span>
     </li>
@@ -61,18 +62,22 @@ const Navbar = ({ company, nav }) => {
 
 
                 <a className="navbar-brand rufina h5 m-0 p-0" href="#">
-                    {company.title ? company.title : (<ContentLoader
-                        height={26}
-                        width={216}
-                        speed={2}
-                        primaryColor="#f3f3f3"
-                        secondaryColor="#ecebeb"
-                        style={{ height: 26 }}
-                    />)}
+                    {company.title ? company.title : (
+                        <ContentLoader
+                            height={22}
+                            width={215}
+                            speed={2}
+                            primaryColor="#f3f3f3"
+                            secondaryColor="#ecebeb"
+                            style={{ height: 22 }}
+                        >
+                            <rect x="0" y="0" rx="4" ry="4" width="215" height="22" />
+                        </ContentLoader>
+                    )}
                 </a>
 
 
-                <a href="tel:+62-877-7145-9754" target="_blank" rel="noopener" className="btn btn-primary square ml-auto shadow-sm d-inline-flex d-lg-none">
+                <a href="tel:+62-877-7145-9754" target="_blank" rel="noopener" className="btn btn-primary square ml-auto shadow-sm d-inline-flex d-lg-none" aria-label="Order Now">
                     <i className="fa fa-phone fa-lg" />
                 </a>
 

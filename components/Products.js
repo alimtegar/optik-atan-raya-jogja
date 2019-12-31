@@ -25,11 +25,10 @@ const ProductsItem = ({ image, group }) => {
 
                         <figcaption>
                             <p className="font-weight-bold">
-                                <button className="btn btn-outline-light square shadow-sm">
+                                <button className="btn btn-outline-light square shadow-sm" aria-label="View Detail">
                                     <i className="fa fa-expand fa-lg" />
                                 </button>
                             </p>
-                            {/* <a>View more</a> */}
                         </figcaption>
                     </figure>
                 </div>
@@ -51,8 +50,7 @@ const ProductsItemLoader = () => (
         primaryColor="#f3f3f3"
         secondaryColor="#ecebeb"
     >
-        <rect x="0" y="0" rx="5" ry="5" width="400" height="400" />
-
+        <rect x="0" y="0" rx="4" ry="4" width="400" height="400" />
         <rect x="24" y="424" rx="4" ry="4" width="250" height="20" />
         <rect x="24" y="458" rx="4" ry="4" width="200" height="14" />
     </ContentLoader>

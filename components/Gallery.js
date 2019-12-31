@@ -13,11 +13,10 @@ const GalleryItem = ({ title, image, group }) => {
 
                         <figcaption>
                             <p className="font-weight-bold">
-                                <button className="btn btn-outline-light square shadow-sm">
+                                <button className="btn btn-outline-light square shadow-sm" aria-label="View Detail">
                                     <i className="fa fa-expand fa-lg" />
                                 </button>
                             </p>
-                            {/* <a>View more</a> */}
                         </figcaption>
                     </figure>
                 </div>
