@@ -38,6 +38,12 @@ export const escapedNewLineToLineBreakTag = (string) => {
 };
 
 export const formatNumber = (number) => {
-    console.log(number);
     return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+};
+
+export const measureFit = (containerWidth, containerHeight, imageWidth, imageHeight) => {
+    const containerRatio = containerWidth / containerHeight;
+    const imageRatio = imageWidth / imageHeight;
+
+    return containerRatio < imageRatio ? 'fit-height' : 'fit-width';
 };

@@ -49,7 +49,7 @@ const Index = () => {
                 console.log(err);
             });
 
-        fetch(adminUrl + '/slider-images')
+        fetch(adminUrl + '/slider-images?_sort=created_at:DESC')
             .then((res) => res.json())
             .then((data) => {
                 setSliderImages(data);
@@ -58,7 +58,7 @@ const Index = () => {
                 console.log(err);
             });
 
-        fetch(adminUrl + '/men-s-collections')
+        fetch(adminUrl + '/men-s-collections?_sort=created_at:DESC')
             .then((res) => res.json())
             .then((data) => {
                 setMensProducts(data);
@@ -67,7 +67,7 @@ const Index = () => {
                 console.log(err);
             });
 
-        fetch(adminUrl + '/women-s-collections')
+        fetch(adminUrl + '/women-s-collections?_sort=created_at:DESC')
             .then((res) => res.json())
             .then((data) => {
                 setWomensProducts(data);
@@ -76,7 +76,7 @@ const Index = () => {
                 console.log(err);
             });
 
-        fetch(adminUrl + '/kid-s-collections')
+        fetch(adminUrl + '/kid-s-collections?_sort=created_at:DESC')
             .then((res) => res.json())
             .then((data) => {
                 setKidsProducts(data);
@@ -85,7 +85,7 @@ const Index = () => {
                 console.log(err);
             });
 
-        fetch(adminUrl + '/accessories')
+        fetch(adminUrl + '/accessories?_sort=created_at:DESC')
             .then((res) => res.json())
             .then((data) => {
                 setAccsProducts(data);
@@ -94,7 +94,7 @@ const Index = () => {
                 console.log(err);
             });
 
-        fetch(adminUrl + '/gallery-images')
+        fetch(adminUrl + '/gallery-images?_sort=created_at:DESC')
             .then((res) => res.json())
             .then((data) => {
                 setGalleryImages(data);
@@ -137,7 +137,7 @@ const Index = () => {
                 <Products id="kid-s-collections" title="Kid's Collections" products={kidsProducts} />
                 <Products id="accessories" title="Accessories" products={accsProducts} />
                 <Gallery galleryImages={galleryImages} />
-                <EmbedMap className="mt-5" embedMap={company.Embed_map} />
+                <EmbedMap embedMap={company.Embed_map} />
                 <Footer company={company} businessHours={businessHours} nav={nav} socialMedias={socialMedias} />
             </main>
         </div>

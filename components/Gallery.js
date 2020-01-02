@@ -1,20 +1,32 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery";
 import ContentLoader from 'react-content-loader'
-import { fixUrl, range } from '../helpers';
+import { fixUrl, range, measureFit } from '../helpers';
 
 const GalleryItem = ({ title, image, group }) => {
+    const [fit, setfFt] = useState('fit-width');
+
+    const containerWidth = 272;
+    const containerHeight = 270;
+
     return (
         <div className="gallery-item shadow-sm">
-            <LightgalleryItem group={group} src={image}>
+            <LightgalleryItem
+                subHtml={`
+                    <h2 class="h6 font-weight-bold mb-0">${title}</h2>
+                `}
+                group={group}
+                src={image}
+            >
                 <div className="item-image">
                     <figure className="effect-goliath w-100 h-100">
-                        <img src={image} alt={title} className="fit-width" />
+                        <img src={image} alt={title} className={fit} onLoad={(e) => setfFt(measureFit(containerWidth, containerHeight, e.target.offsetWidth, e.target.offsetHeight))} />
 
                         <figcaption>
                             <p class="d-flex align-items-center">
                                 <span>Click to Preview</span>
-                                 <i className="fa fa-chevron-right fa-sm ml-auto" />
+                                <i className="fa fa-chevron-right fa-sm ml-auto" />
                             </p>
                         </figcaption>
                     </figure>

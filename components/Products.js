@@ -1,15 +1,21 @@
-import PropTypes from 'prop-types'
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import Slider from "react-slick";
 import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery";
-import ContentLoader from 'react-content-loader'
+import ContentLoader from 'react-content-loader';
 
 /* Components */
 import { SliderNextArrow, SliderPrevArrow } from './SliderArrows';
 
 /* Helpers */
-import { fixUrl, range, formatNumber } from '../helpers';
+import { fixUrl, range, formatNumber, measureFit } from '../helpers';
 
 const ProductsItem = ({ title, size, price, image, group }) => {
+    const [fit, setfFt] = useState('fit-width');
+
+    const containerWidth = 272;
+    const containerHeight = 270;
+
     return (
         <div className="products-item shadow-sm overflow-hidden">
             <LightgalleryItem
@@ -18,15 +24,16 @@ const ProductsItem = ({ title, size, price, image, group }) => {
                     <p class="small mb-0">IDR ${formatNumber(price)} · ${size}</p>
                 `}
                 group={group}
-                src={image}>
+                src={image}
+            >
                 <div className="item-image">
                     <figure className="effect-goliath w-100 h-100">
-                        <img src={image} alt="Products Item" className="fit-width" />
+                        <img src={image} alt={title} className={fit} onLoad={(e) => setfFt(measureFit(containerWidth, containerHeight, e.target.offsetWidth, e.target.offsetHeight))} />
 
                         <figcaption>
                             <p class="d-flex align-items-center">
                                 <span>Click to Preview</span>
-                                 <i className="fa fa-chevron-right fa-sm ml-auto" />
+                                <i className="fa fa-chevron-right fa-sm ml-auto" />
                             </p>
                         </figcaption>
                     </figure>
